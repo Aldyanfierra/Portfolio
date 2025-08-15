@@ -1,103 +1,111 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --background-color: #121212;
-            --text-color: #f0f0f0;
-            --border-color: #444;
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body, html {
-            height: 100%;
-            overflow: hidden;
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirecting...</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&family=Zen+Kaku+Gothic+New:wght@900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #000;
+      --fg: #fff;
+      --accent: #aaa;
+      --font-en: 'Zen Kaku Gothic New', sans-serif;
+      --font-jp: 'Noto Sans JP', sans-serif;
+    }
 
-        .container {
-            text-align: center;
-            opacity: 0;
-            animation: fadeIn 1s forwards;
-            animation-delay: 0.5s;
-        }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-en);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .loader {
-            width: 50px;
-            height: 50px;
-            margin: 0 auto 24px;
-            position: relative;
-        }
-        
-        .loader::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--border-color);
-            border-top-color: var(--text-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
+    main {
+      padding: 1.5rem 2rem;
+      border: 2px solid var(--fg);
+      border-radius: 8px;
+      text-align: center;
+      max-width: 320px;
+      animation: fadeIn 0.5s ease-out forwards;
+      opacity: 0;
+    }
 
-        .title {
-            font-size: 1.5rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
+    h1 {
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 900;
+      margin: 0 0 0.4rem;
+    }
 
-        .subtitle {
-            font-size: 0.9rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.7);
-        }
+    .jp {
+      font-family: var(--font-jp);
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0;
+      color: var(--accent);
+    }
 
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
+    .loader {
+      margin: 0.8rem auto 0.5rem;
+      width: 50px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+      position: relative;
+      overflow: hidden;
+    }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const redirectUrl = "https://sites.google.com/view/aldyan-fierra/work";
-            const delayInMs = 3000; // 3 detik
+    .loader::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--fg);
+      animation: load 1.2s ease-in-out infinite;
+    }
 
-            setTimeout(() => {
-                window.location.href = redirectUrl;
-            }, delayInMs);
-        });
-    </script>
+    .desc {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin: 0;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes load {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        window.location.href = "https://sites.google.com/view/aldyan-fierra/work";
+      }, 3000);
+    });
+  </script>
 </head>
 <body>
-    <div class="container">
-        <div class="loader"></div>
-        <div class="text-group">
-            <p class="title">Redirecting</p>
-            <p class="subtitle">to Aldyan Fierra's portfolio</p>
-        </div>
-    </div>
+  <main>
+    <h1>REDIRECTING</h1>
+    <p class="jp">ポートフォリオに転送中</p>
+    <div class="loader"></div>
+    <p class="desc">to Aldyan Fierra's portfolio</p>
+  </main>
 </body>
 </html>
