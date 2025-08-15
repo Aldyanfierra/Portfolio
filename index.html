@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting</title>
+    <title>Redirecting...</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --background-color: #0c0c0c;
+            --background-color: #121212;
             --text-color: #f0f0f0;
-            --highlight-color: #ff5722; /* Warna aksen opsional */
+            --border-color: #444;
         }
         
         * {
@@ -23,7 +23,7 @@
         body, html {
             height: 100%;
             overflow: hidden;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: var(--background-color);
             color: var(--text-color);
             display: flex;
@@ -39,9 +39,9 @@
         }
 
         .loader {
-            width: 45px;
-            height: 45px;
-            margin: 0 auto 20px;
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 24px;
             position: relative;
         }
         
@@ -52,24 +52,24 @@
             left: 0;
             width: 100%;
             height: 100%;
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--border-color);
             border-top-color: var(--text-color);
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
 
         .title {
-            font-size: 1.25rem;
-            font-weight: 300;
-            letter-spacing: 2px;
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 1px;
             margin-bottom: 8px;
             text-transform: uppercase;
         }
 
         .subtitle {
-            font-size: 0.8rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.7);
         }
 
         @keyframes fadeIn {
@@ -79,7 +79,6 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
-
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
