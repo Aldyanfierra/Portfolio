@@ -16,7 +16,7 @@
     :root {
       --bg-color: #000;
       --text-color: #fff;
-      --accent-color: #aaa;
+      --accent-color: #999;
       --font-en: 'Zen Kaku Gothic New', sans-serif;
       --font-jp: 'Noto Sans JP', sans-serif;
     }
@@ -28,7 +28,7 @@
       background: var(--bg-color);
       color: var(--text-color);
       font-family: var(--font-en);
-      display: grid;
+      display: grid; /* Menggunakan grid untuk penataan di tengah */
       place-items: center;
     }
 
@@ -36,11 +36,10 @@
     /* MAIN CONTAINER       */
     /* -------------------- */
     main {
-      padding: 1.5rem 2rem;
-      border: 2px solid var(--text-color);
-      border-radius: 5px;
-      text-align: center;
-      max-width: 320px;
+      display: flex; /* Menggunakan flexbox untuk tata letak vertikal */
+      flex-direction: column;
+      max-width: 500px;
+      padding: 2.5rem; /* Menambah padding untuk kesan ruang yang lebih baik */
       animation: fadeIn 0.5s ease-out forwards;
       opacity: 0;
     }
@@ -48,41 +47,51 @@
     /* -------------------- */
     /* TYPOGRAPHY           */
     /* -------------------- */
-    h1 {
-      font-size: 2rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+    .heading {
+      font-size: 3rem;
       font-weight: 900;
-      margin: 0 0 0.5rem;
+      text-transform: uppercase;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
     }
 
     .jp {
       font-family: var(--font-jp);
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      margin: 0 0 1.5rem; /* Menambah margin bawah untuk memisahkan dari loader */
       color: var(--accent-color);
+      margin-bottom: 2rem;
     }
 
     .desc {
-      font-size: 0.75rem;
+      font-size: 0.9rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.05em;
       color: var(--accent-color);
       margin-top: 1.5rem;
     }
+    
+    /* -------------------- */
+    /* ENHANCED VISUALS     */
+    /* -------------------- */
+    main::before {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: var(--text-color);
+      margin-bottom: 1.5rem;
+    }
 
-    /* -------------------- */
-    /* VISIBLE LOADER       */
-    /* -------------------- */
-    .loader {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      border: 2px solid var(--accent-color);
-      border-top-color: transparent;
-      animation: spin 1s linear infinite;
-      margin: 0.5rem auto; /* Menempatkan loader di tengah */
+    main::after {
+      content: '';
+      display: block;
+      height: 3px;
+      background: var(--text-color);
+      width: 0%;
+      margin-top: 1rem;
+      animation: loading 3s linear forwards;
     }
 
     /* -------------------- */
@@ -92,8 +101,8 @@
       to { opacity: 1; }
     }
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
+    @keyframes loading {
+      to { width: 100%; }
     }
   </style>
   
@@ -107,9 +116,9 @@
 </head>
 <body>
   <main>
-    <h1>REDIRECTING</h1>
-    <p class="jp">ポートフォリオへ移動中</p>
-    <div class="loader"></div> <p class="desc">to Aldyan Fierra's portfolio</p>
+    <div class="heading">Redirecting</div>
+    <div class="jp">ポートフォリオへ移動中</div>
+    <div class="desc">To Aldyan Fierra’s Portfolio</div>
   </main>
 </body>
 </html>
