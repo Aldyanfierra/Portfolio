@@ -4,14 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Redirecting...</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&family=Zen+Kaku+Gothic+New:wght@900&display=swap" rel="stylesheet" />
+
   <style>
+    /* -------------------- */
+    /* VARS & GLOBAL STYLES */
+    /* -------------------- */
     :root {
-      --bg: #000;
-      --fg: #fff;
-      --accent: #aaa;
+      --bg-color: #000;
+      --text-color: #fff;
+      --accent-color: #aaa;
       --font-en: 'Zen Kaku Gothic New', sans-serif;
       --font-jp: 'Noto Sans JP', sans-serif;
     }
@@ -20,78 +25,78 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      background: var(--bg);
-      color: var(--fg);
+      background: var(--bg-color);
+      color: var(--text-color);
       font-family: var(--font-en);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: grid;
+      place-items: center;
     }
 
+    /* -------------------- */
+    /* MAIN CONTAINER       */
+    /* -------------------- */
     main {
       padding: 1.5rem 2rem;
-      border: 2px solid var(--fg);
-      border-radius: 8px;
+      border: 2px solid var(--text-color);
+      border-radius: 5px;
       text-align: center;
       max-width: 320px;
       animation: fadeIn 0.5s ease-out forwards;
       opacity: 0;
     }
 
+    /* -------------------- */
+    /* TYPOGRAPHY           */
+    /* -------------------- */
     h1 {
       font-size: 2rem;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 900;
-      margin: 0 0 0.4rem;
+      margin: 0 0 0.5rem;
     }
 
     .jp {
       font-family: var(--font-jp);
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: 700;
-      margin: 0;
-      color: var(--accent);
-    }
-
-    .loader {
-      margin: 0.8rem auto 0.5rem;
-      width: 50px;
-      height: 4px;
-      background: var(--accent);
-      border-radius: 2px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .loader::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: var(--fg);
-      animation: load 1.2s ease-in-out infinite;
+      margin: 0 0 1.5rem; /* Menambah margin bawah untuk memisahkan dari loader */
+      color: var(--accent-color);
     }
 
     .desc {
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      margin: 0;
+      letter-spacing: 0.1em;
+      color: var(--accent-color);
+      margin-top: 1.5rem;
     }
 
+    /* -------------------- */
+    /* VISIBLE LOADER       */
+    /* -------------------- */
+    .loader {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-color);
+      border-top-color: transparent;
+      animation: spin 1s linear infinite;
+      margin: 0.5rem auto; /* Menempatkan loader di tengah */
+    }
+
+    /* -------------------- */
+    /* ANIMATIONS           */
+    /* -------------------- */
     @keyframes fadeIn {
       to { opacity: 1; }
     }
 
-    @keyframes load {
-      0% { left: -100%; }
-      100% { left: 100%; }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
   </style>
+  
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
@@ -103,9 +108,8 @@
 <body>
   <main>
     <h1>REDIRECTING</h1>
-    <p class="jp">ポートフォリオに転送中</p>
-    <div class="loader"></div>
-    <p class="desc">to Aldyan Fierra's portfolio</p>
+    <p class="jp">ポートフォリオへ移動中</p>
+    <div class="loader"></div> <p class="desc">to Aldyan Fierra's portfolio</p>
   </main>
 </body>
 </html>
