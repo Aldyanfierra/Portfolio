@@ -14,8 +14,8 @@
     /* VARS & GLOBAL STYLES */
     /* -------------------- */
     :root {
-      --bg-color: #000;
-      --text-color: #fff;
+      --bg-color: #0d0d0d;
+      --text-color: #f2f2f2;
       --accent-color: #999;
       --font-en: 'Zen Kaku Gothic New', sans-serif;
       --font-jp: 'Noto Sans JP', sans-serif;
@@ -28,7 +28,7 @@
       background: var(--bg-color);
       color: var(--text-color);
       font-family: var(--font-en);
-      display: grid; /* Menggunakan grid untuk penataan di tengah */
+      display: grid;
       place-items: center;
     }
 
@@ -36,10 +36,12 @@
     /* MAIN CONTAINER       */
     /* -------------------- */
     main {
-      display: flex; /* Menggunakan flexbox untuk tata letak vertikal */
+      display: flex;
       flex-direction: column;
-      max-width: 500px;
-      padding: 2.5rem; /* Menambah padding untuk kesan ruang yang lebih baik */
+      align-items: center; /* Memusatkan semua konten secara horizontal */
+      padding: 1rem 1.5rem; /* Mengurangi padding */
+      border: 1px solid var(--accent-color);
+      max-width: 250px; /* Membuat area lebih kecil */
       animation: fadeIn 0.5s ease-out forwards;
       opacity: 0;
     }
@@ -48,7 +50,7 @@
     /* TYPOGRAPHY           */
     /* -------------------- */
     .heading {
-      font-size: 3rem;
+      font-size: 1.5rem; /* Ukuran heading lebih kecil */
       font-weight: 900;
       text-transform: uppercase;
       line-height: 1;
@@ -58,39 +60,38 @@
 
     .jp {
       font-family: var(--font-jp);
-      font-size: 1.2rem;
+      font-size: 0.9rem; /* Ukuran font Jepang lebih kecil */
       font-weight: 700;
       color: var(--accent-color);
-      margin-bottom: 2rem;
     }
-
+    
     .desc {
-      font-size: 0.9rem;
+      font-size: 0.65rem; /* Ukuran deskripsi lebih kecil */
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: var(--accent-color);
-      margin-top: 1.5rem;
-    }
-    
-    /* -------------------- */
-    /* ENHANCED VISUALS     */
-    /* -------------------- */
-    main::before {
-      content: '';
-      display: block;
-      height: 2px;
-      width: 100%;
-      background: var(--text-color);
-      margin-bottom: 1.5rem;
+      margin-top: 0.8rem;
     }
 
-    main::after {
+    /* -------------------- */
+    /* MINIMALIST LOADER    */
+    /* -------------------- */
+    .loader {
+      width: 40px;
+      height: 1px; /* Garis yang sangat tipis */
+      background: var(--accent-color);
+      margin: 1rem 0;
+      position: relative;
+    }
+
+    .loader::before {
       content: '';
-      display: block;
-      height: 3px;
-      background: var(--text-color);
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 0%;
-      margin-top: 1rem;
+      height: 100%;
+      background: var(--text-color);
       animation: loading 3s linear forwards;
     }
 
@@ -118,7 +119,8 @@
   <main>
     <div class="heading">Redirecting</div>
     <div class="jp">ポートフォリオへ移動中</div>
-    <div class="desc">To Aldyan Fierra’s Portfolio</div>
+    <div class="loader"></div>
+    <div class="desc">to aldyan fierra’s portfolio</div>
   </main>
 </body>
 </html>
